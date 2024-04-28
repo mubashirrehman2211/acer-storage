@@ -17,7 +17,6 @@ export const useProductStore = defineStore('product', {
         ],
 
         supportOptions: [
-            'CUSTOMER SUPPORT',
             'MANUALS & TOOLS',
             'WARRANTY POLICY',
             'ACRONIS DOWNLOAD',
@@ -32,22 +31,22 @@ export const useProductStore = defineStore('product', {
         ],
 
         indexCard: {
-            img1: '/assets/Products-Image/1.jpg',
+            img1: '/Products-Image/1.jpg',
 
             img2:
-                '/assets/Products-Image/2.jpg',
+                '/Products-Image/2.jpg',
 
             img3:
-                '/assets/Products-Image/3.png',
+                '/Products-Image/3.png',
 
             img4:
-                '/assets/Products-Image/4.png',
+                '/Products-Image/4.png',
 
             img5:
-                '/assets/Products-Image/5.jpg',
+                '/Products-Image/5.jpg',
 
             img6:
-                '/assets/Products-Image/6.jpg',
+                '/Products-Image/6.jpg',
 
             title1:
                 'Acer UD200 DDR5 Desktop Memory',
@@ -104,13 +103,13 @@ export const useProductStore = defineStore('product', {
         },
 
         newsCard: {
-            img1: '/assets/News-Image/1.jpg',
+            img1: '/News-Image/1.jpg',
 
             img2:
-                '/assets/News-Image/2.jpg',
+                '/News-Image/2.jpg',
 
             img3:
-                '/assets/News-Image/3.jpg',
+                '/News-Image/3.jpg',
 
             title1:
                 'Acer FA200 SSD: Elevate Your Digital Experience',
@@ -133,61 +132,61 @@ export const useProductStore = defineStore('product', {
         },
 
         baseProducts: {
-            img1: '/assets/Products-Image/1.jpg',
+            img1: '/Products-Image/1.jpg',
 
             img2:
-                '/assets/Products-Image/2.jpg',
+                '/Products-Image/2.jpg',
 
             img3:
-                '/assets/Products-Image/3.png',
+                '/Products-Image/3.png',
 
             img4:
-                '/assets/Products-Image/4.png',
+                '/Products-Image/4.png',
 
             img5:
-                '/assets/Products-Image/5.jpg',
+                '/Products-Image/5.jpg',
 
             img6:
-                '/assets/Products-Image/6.jpg',
+                '/Products-Image/6.jpg',
 
             img7:
-                '/assets/Products-Image/7.jpg',
+                '/Products-Image/7.jpg',
 
             img8:
-                '/assets/Products-Image/8.jpg',
+                '/Products-Image/8.jpg',
 
             img9:
-                '/assets/Products-Image/9.jpg',
+                '/Products-Image/9.jpg',
 
             img10:
-                '/assets/Products-Image/10.jpg',
+                '/Products-Image/10.jpg',
 
             img11:
-                '/assets/Products-Image/11.jpg',
+                '/Products-Image/11.jpg',
 
             img12:
-                '/assets/Products-Image/12.png',
+                '/Products-Image/12.png',
 
             img13:
-                '/assets/Products-Image/13.jpg',
+                '/Products-Image/13.jpg',
 
             img14:
-                '/assets/Products-Image/14.jpg',
+                '/Products-Image/14.jpg',
 
             img15:
-                '/assets/Products-Image/15.jpg',
+                '/Products-Image/15.jpg',
 
             img16:
-                '/assets/Products-Image/17.png',
+                '/Products-Image/17.png',
 
             img17:
-                '/assets/Products-Image/18.png',
+                '/Products-Image/18.png',
 
             img18:
-                '/assets/Products-Image/19.jpg',
+                '/Products-Image/19.jpg',
 
             img19:
-                '/assets/Products-Image/20.png',
+                '/Products-Image/20.png',
 
             title1:
                 'Acer UD200 DDR5 Desktop Memory',

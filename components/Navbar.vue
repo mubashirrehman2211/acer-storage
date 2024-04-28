@@ -11,7 +11,7 @@ const product = useProductStore()
   <div class="flex text-center justify-around shadow-sm h-[70px]">
 
     <NuxtLink class="logo mt-2 router-link-active" to="/">
-      <img alt="Logo_img" src="/assets/logo.svg">
+      <img alt="Logo_img" src="/logo.svg">
     </NuxtLink>
 
     <div class="flex items-start text-start justify-start mt-2">

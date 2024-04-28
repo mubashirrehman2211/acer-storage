@@ -8,6 +8,6 @@
 
   <IndexNewsCard/>
 
-  <Footer/>
+  <div class="card">aaaaa</div>
 </template>
 

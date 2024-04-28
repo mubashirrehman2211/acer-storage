@@ -40,12 +40,12 @@ const products = reactive([
   </div>
 
   <ProductsCard/>
-  
+
 </template>
 
 <style scoped>
 .bg-img {
-  background: url('/assets/Products-Image/bg-img.jpg');
+  background: url('/Products-Image/bg-img.jpg');
 }
 
 .router-link-active {

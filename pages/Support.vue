@@ -149,6 +149,6 @@ import Phone from "nvd-u/icons/Phone.vue";
 
 <style scoped>
 .bg-img {
-  background: url("/assets/image/support-bg-img.jpg");
+  background: url("/image/support-bg-img.jpg");
 }
 </style>

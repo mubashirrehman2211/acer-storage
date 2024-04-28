@@ -16,7 +16,7 @@
 body {
     font-family: "Poppins", sans-serif;
     overflow-x: hidden;
-    background-color: #fff !important;
+    background: #fff !important;
 }
 
 .all-center {
@@ -24,7 +24,7 @@ body {
 }
 
 .card {
-    @apply rounded shadow-md overflow-hidden
+    @apply rounded border-2 border-amber-800 shadow-md overflow-hidden
 }
 
 

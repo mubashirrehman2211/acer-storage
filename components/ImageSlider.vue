@@ -11,7 +11,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <img :src="`/assets/image/${product.selectedImage}.jpg`"
+  <img :src="`/image/${product.selectedImage}.jpg`"
        alt="bg-img"
        class="w-full h-[90vh] bg-cover bg-center bg-no-repeat bg-fixed m-0 p-0"/>
 
