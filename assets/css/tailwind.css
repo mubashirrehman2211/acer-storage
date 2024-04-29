@@ -24,7 +24,7 @@ body {
 }
 
 .card {
-    @apply rounded border-2 border-amber-800 shadow-md overflow-hidden
+    @apply rounded border-2 shadow-md overflow-hidden
 }
 
 
