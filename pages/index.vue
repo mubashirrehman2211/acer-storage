@@ -7,7 +7,5 @@
   <IndexProductsCard/>
 
   <IndexNewsCard/>
-
-  <div class="card">aaaaa</div>
 </template>
 
