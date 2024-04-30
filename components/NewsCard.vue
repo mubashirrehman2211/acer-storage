@@ -3,7 +3,8 @@ defineProps(['news', 'title', 'imgSrc'])
 </script>
 
 <template>
-  <div class="card text-center justify-center w-[400px] hover:text-[#86d145] cursor-pointer">
+  <div
+      class="border-2 border-gray-100 rounded text-center justify-center w-[400px] hover:text-[#86d145] cursor-pointer overflow-hidden">
     <div class="max-w-full max-h-full overflow-hidden">
       <img :src="imgSrc" alt="news-img"
            class="max-w-full max-h-full hover:scale-[1.05] duration-500">
