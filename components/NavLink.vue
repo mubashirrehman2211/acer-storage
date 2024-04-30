@@ -37,32 +37,5 @@ function close() {
 
 <style scoped>
 
-.nuxt-link {
-  color: #888;
-  margin: 4em !important;
-  font-size: 1.2em;
-}
 
-.router-link-active {
-  border-bottom: none !important;
-}
-
-.router-link-exact-active {
-  font-weight: bolder;
-  color: #000;
-}
-
-.dropdown-fade-enter-active {
-  transition: all 0.3s ease-in;
-}
-
-.dropdown-fade-leave-active {
-  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
-}
-
-.dropdown-fade-enter-from,
-.dropdown-fade-leave-to {
-  transform: translateY(-45px);
-  opacity: 0;
-}
 </style>

@@ -19,7 +19,7 @@ const product = useProductStore()
       <NavLink
           :options="product.productOptions"
           title="PRODUCTS"
-          to="products/products"
+          to="/products"
       />
 
       <NavLink
@@ -44,17 +44,6 @@ const product = useProductStore()
 </template>
 
 <style scoped>
-.logo {
-  max-width: 150px;
-}
 
-.router-link-exact-active {
-  font-weight: bolder;
-  color: #000;
-}
-
-.router-link-active {
-  border-bottom: none !important;
-}
 
 </style>

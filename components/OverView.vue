@@ -3,7 +3,6 @@
 import OverViewCard from "~/components/OverViewCard.vue"
 import {useOverViewStore} from "~/stores/OverViewStore";
 
-const product = useProductStore()
 const overview = useOverViewStore()
 </script>
 
