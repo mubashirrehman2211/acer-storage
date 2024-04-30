@@ -111,7 +111,6 @@ export const useProductStore = defineStore("product", {
 
     getters: {
         resultedArray() {
-            // console.log(this.selectedProduct, "product");
             if (this.selectedProduct) {
                 return this.ProductArray.filter((item) => {
                     return this.selectedProduct

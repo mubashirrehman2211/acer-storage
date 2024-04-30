@@ -32,6 +32,11 @@ const product = useProductStore()
 
   <BaseProduct/>
 
+  <div v-if="product.resultedArray.length === 0"
+       class="all-center text-xl my-40 border-2 border-gray-100 shadow-sm rounded m-auto px-4 py-8 w-[30%]">
+    Sorry! This Product is <span class="text-red-700 ml-1">Out of Stock</span>.
+  </div>
+
 </template>
 
 <style scoped>
