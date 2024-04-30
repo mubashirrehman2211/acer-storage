@@ -28,7 +28,7 @@ body {
 }
 
 .router-link-exact-active {
-    font-weight: bolder;
+    font-weight: 500;
     color: #000;
 }
 
