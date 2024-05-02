@@ -1,4 +1,7 @@
 import {setInterval} from "#app/compat/interval.js";
+import {useRouter} from "vue-router";
+
+const router = useRouter()
 
 export const useProductStore = defineStore("product", {
     state: () => ({
@@ -10,6 +13,8 @@ export const useProductStore = defineStore("product", {
         selectedProduct: null,
         indexProductArray: null,
         toggleSearch: false,
+        searchValue: null,
+        searchedArray: null,
 
         productOptions: ["PCIE M.2 SSD", 'SATA 2.5" SSD', 'SATA M.2" SSD', "MEMORY", "MEMORY CARD", "USB FLASH DRIVE"],
 
@@ -114,6 +119,9 @@ export const useProductStore = defineStore("product", {
     }),
 
     getters: {
+
+        // SEARCH BY TITLE
+
         resultedArray() {
             if (this.selectedProduct === 'ALL') return this.ProductArray;
 
@@ -126,6 +134,21 @@ export const useProductStore = defineStore("product", {
                 });
             } else {
                 return this.ProductArray
+            }
+        },
+
+        // SEARCH BY WORD
+
+
+        searchArray() {
+
+            if (this.searchValue) {
+                return this.ProductArray.filter((item) => {
+                    return this.searchValue
+                        .toUpperCase()
+                        .split(" ")
+                        .every((v) => item.title.toUpperCase().includes(v));
+                });
             }
         },
     },
@@ -145,8 +168,10 @@ export const useProductStore = defineStore("product", {
             }, 5000);
         },
 
+
         // scrollImage(imgIndex) {
         //     this.selectedScrollImage = imgIndex;
         // },
+
     },
 });

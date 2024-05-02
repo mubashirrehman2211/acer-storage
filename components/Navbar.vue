@@ -10,6 +10,14 @@ const router = useRouter()
 function goToSearchPage() {
   router.push('/Search')
 }
+
+function searchBtn() {
+  product.toggleSearch = true
+  if (product.searchValue) {
+    router.push('/Search')
+  }
+}
+
 </script>
 
 <template>
@@ -47,12 +55,14 @@ function goToSearchPage() {
         <Transition name="input">
           <input
               v-if="product.toggleSearch"
+              v-model="product.searchValue"
               class="w-60 mx-2 bg-[#666] outline-none text-sm p-2"
               placeholder="search"
-              type="text">
+              type="text"
+          >
         </Transition>
         <Magnify :class="{'text-white': product.toggleSearch}" class="text-3xl text-gray-500"
-                 @click="product.toggleSearch = true"
+                 @click="searchBtn()"
                  @dblclick="goToSearchPage()"/>
       </div>
     </div>
