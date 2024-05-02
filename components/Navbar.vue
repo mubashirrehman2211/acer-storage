@@ -2,8 +2,14 @@
 import Magnify from 'nvd-u/icons/Magnify.vue'
 import {useProductStore} from "~/stores/product.js";
 
+
 const product = useProductStore()
 
+const router = useRouter()
+
+function goToSearchPage() {
+  router.push('/Search')
+}
 </script>
 
 <template>
@@ -36,14 +42,46 @@ const product = useProductStore()
 
     </div>
 
-    <NuxtLink class="all-center" to="/search">
-      <Magnify class="text-3xl text-gray-500"/>
-    </NuxtLink>
+    <div class="all-center">
+      <div :class="{'search' : product.toggleSearch}" class="flex">
+        <Transition name="input">
+          <input
+              v-if="product.toggleSearch"
+              class="w-60 mx-2 bg-[#666] outline-none text-sm p-2"
+              placeholder="search"
+              type="text">
+        </Transition>
+        <Magnify :class="{'text-white': product.toggleSearch}" class="text-3xl text-gray-500"
+                 @click="product.toggleSearch = true"
+                 @dblclick="goToSearchPage()"/>
+      </div>
+    </div>
 
   </div>
 </template>
 
 <style scoped>
+.search {
+  border: 2px solid #666;
+  border-radius: 15px;
+  height: 30px;
+  background-color: #666;
+  color: #ffffff;
+}
 
 
+.input-enter-active {
+  transition: all 0.5s linear;
+}
+
+.input-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.input-enter-from,
+.input-leave-to {
+  transform: translateX(100px);
+  opacity: 0;
+
+}
 </style>

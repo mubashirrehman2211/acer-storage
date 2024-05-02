@@ -56,15 +56,16 @@ body {
     opacity: 0;
 }
 
+
 .list-enter-active,
 .list-leave-active {
-    transition: all 0.8s ease;
+    transition: all 0.5s ease-in-out;
 }
 
 .list-enter-from,
 .list-leave-to {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateX(-100px);
 }
 
 
