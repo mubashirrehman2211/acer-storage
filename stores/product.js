@@ -9,10 +9,13 @@ export const useProductStore = defineStore("product", {
         selectedScrollImage: 1,
         selectedProduct: null,
         indexProductArray: null,
+        toggleSearch: false,
 
-        productOptions: ["PCIE M.2 SSD", 'SATA 2.5" SSD', 'SATA M.2" SSD', "MEMORY", "MEMORY CARD", "USB FLASH DRIVE",],
+        productOptions: ["PCIE M.2 SSD", 'SATA 2.5" SSD', 'SATA M.2" SSD', "MEMORY", "MEMORY CARD", "USB FLASH DRIVE"],
 
-        supportOptions: ["MANUALS & TOOLS", "WARRANTY POLICY", "ACRONIS DOWNLOAD", "FAQ",],
+        selectOptions: ['ALL', "PCIE M.2 SSD", 'SATA 2.5" SSD', 'SATA M.2" SSD', "MEMORY", "MEMORY CARD", "USB FLASH DRIVE"],
+
+        supportOptions: ["MANUALS & TOOLS", "WARRANTY POLICY", "ACRONIS DOWNLOAD", "FAQ"],
 
         aboutOptions: ["ACER STORAGE", "NEWS", "REVIEWS", "CONTACT"],
 
@@ -48,6 +51,7 @@ export const useProductStore = defineStore("product", {
             listNo5: ['Supports V30 and 4k', 'UHS-I standard', 'Read at speeds up to 160 MB/s'],
             listNo6: ['Up to 120 MB/s read speed', 'Premium controller and ICs', 'Choice of three colors'],
         },
+
         newsCard: {
             img1: "/News-Image/1.jpg",
 
@@ -69,57 +73,59 @@ export const useProductStore = defineStore("product", {
         },
 
         ProductArray: [{
-            img: "/Products-Image/1.jpg", title: "Acer UD200 DDR5 Desktop Memory",
+            id: 1, img: "/Products-Image/1.jpg", title: "Acer UD200 DDR5 Desktop Memory",
         }, {
-            img: "/Products-Image/2.jpg", title: "Acer SD200 Laptop DRAM",
+            id: 2, img: "/Products-Image/2.jpg", title: "Acer SD200 Laptop DRAM",
         }, {
-            img: "/Products-Image/3.png", title: "Acer FA200 PCle M.2 SSD",
+            id: 3, img: "/Products-Image/3.png", title: "Acer FA200 PCle M.2 SSD",
         }, {
-            img: "/Products-Image/4.png", title: "Acer UM310 USB Flash Drive",
+            id: 4, img: "/Products-Image/4.png", title: "Acer UM310 USB Flash Drive",
         }, {
-            img: "/Products-Image/5.jpg", title: "Acer MSC300 MicroSD Card",
+            id: 5, img: "/Products-Image/5.jpg", title: "Acer MSC300 MicroSD Card",
         }, {
-            img: "/Products-Image/6.jpg", title: "Acer MSC300 MicroSD Card",
+            id: 6, img: "/Products-Image/6.jpg", title: "Acer MSC300 MicroSD Card",
         }, {
-            img: "/Products-Image/7.jpg", title: 'Acer RE100 2.5" SATA III SSD',
+            id: 7, img: "/Products-Image/7.jpg", title: 'Acer RE100 2.5" SATA III SSD',
         }, {
-            img: "/Products-Image/8.jpg", title: "Acer FA100 M.2 PCIe NVMe SSD",
+            id: 8, img: "/Products-Image/8.jpg", title: "Acer FA100 M.2 PCIe NVMe SSD",
         }, {
-            img: "/Products-Image/9.jpg", title: 'Acer SA100 2.5" SATA lll SSD',
+            id: 9, img: "/Products-Image/9.jpg", title: 'Acer SA100 2.5" SATA lll SSD',
         }, {
-            img: "/Products-Image/10.jpg", title: "Acer UD100 Desktop DRAM",
+            id: 10, img: "/Products-Image/10.jpg", title: "Acer UD100 Desktop DRAM",
         }, {
-            img: "/Products-Image/11.jpg", title: "Acer UD100 Desktop DRAM",
+            id: 11, img: "/Products-Image/11.jpg", title: "Acer UD100 Desktop DRAM",
         }, {
-            img: "/Products-Image/12.png", title: "Acer RE100 M.2 SSD",
+            id: 12, img: "/Products-Image/12.png", title: "Acer RE100 M.2 SSD",
         }, {
-            img: "/Products-Image/13.jpg", title: "Acer CF100 Memory Card",
+            id: 13, img: "/Products-Image/13.jpg", title: "Acer CF100 Memory Card",
         }, {
-            img: "/Products-Image/14.jpg", title: "Acer CFexpress™ Type B Card CFE100",
+            id: 14, img: "/Products-Image/14.jpg", title: "Acer CF200 Memory Card ",
         }, {
-            img: "/Products-Image/15.jpg", title: "Acer HT100 Desktop DRAM",
+            id: 15, img: "/Products-Image/15.jpg", title: "Acer HT100 Desktop DRAM",
         }, {
-            img: "/Products-Image/17.png", title: "Acer UF300 USB Flash Drive",
+            id: 16, img: "/Products-Image/17.png", title: "Acer UF300 USB Flash Drive",
         }, {
-            img: "/Products-Image/18.png", title: "Acer UF200 USB Flash Drive",
+            id: 17, img: "/Products-Image/18.png", title: "Acer UF200 USB Flash Drive",
         }, {
-            img: "/Products-Image/19.jpg", title: "Acer UP200 USB Flash Drive",
+            id: 18, img: "/Products-Image/19.jpg", title: "Acer UP200 USB Flash Drive",
         }, {
-            img: "/Products-Image/20.png", title: "Acer SC300 SD Card",
+            id: 19, img: "/Products-Image/20.png", title: "Acer SC300 SD Memory Card",
         },],
     }),
 
     getters: {
         resultedArray() {
+            if (this.selectedProduct === 'ALL') return this.ProductArray;
+
             if (this.selectedProduct) {
                 return this.ProductArray.filter((item) => {
                     return this.selectedProduct
-                        .toLowerCase()
+                        .toUpperCase()
                         .split(" ")
-                        .every((v) => item.title.toLowerCase().includes(v));
+                        .every((v) => item.title.toUpperCase().includes(v));
                 });
             } else {
-                return this.ProductArray;
+                return this.ProductArray
             }
         },
     },
@@ -139,10 +145,8 @@ export const useProductStore = defineStore("product", {
             }, 5000);
         },
 
-        scrollImage(imgIndex) {
-            this.selectedScrollImage = imgIndex;
-        },
-
-
+        // scrollImage(imgIndex) {
+        //     this.selectedScrollImage = imgIndex;
+        // },
     },
 });
