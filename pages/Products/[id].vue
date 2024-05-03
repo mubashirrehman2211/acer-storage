@@ -4,20 +4,28 @@ import OverView from "~/components/OverView.vue";
 import DownloadComponent from "~/components/DownloadComponent.vue";
 import RelatedProduct from "~/components/RelatedProduct.vue";
 
-const {id} = useRoute().params
+const product = useProductStore()
 
+onMounted(() => {
+  product.findProduct()
+  product.filterProduct()
+})
 </script>
 
 <template>
-  <ProductDetail/>
 
-  <OverView/>
+  <div v-if="product.p">
+    <ProductDetail/>
 
-  <ProductSpecification/>
+    <OverView/>
 
-  <DownloadComponent/>
+    <ProductSpecification/>
 
-  <RelatedProduct/>
+    <DownloadComponent/>
+
+    <RelatedProduct/>
+  </div>
+  <ULoading v-else>loading...</ULoading>
 </template>
 
 <style scoped>
