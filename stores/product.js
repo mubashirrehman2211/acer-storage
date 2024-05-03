@@ -1,7 +1,5 @@
 import {setInterval} from "#app/compat/interval.js";
-import {useRouter} from "vue-router";
 
-const router = useRouter()
 
 export const useProductStore = defineStore("product", {
     state: () => ({
@@ -15,6 +13,9 @@ export const useProductStore = defineStore("product", {
         toggleSearch: false,
         searchValue: null,
         searchedArray: null,
+        selectItem: null,
+        p: null,
+        relatedProduct: null,
 
         productOptions: ["PCIE M.2 SSD", 'SATA 2.5" SSD', 'SATA M.2" SSD', "MEMORY", "MEMORY CARD", "USB FLASH DRIVE"],
 
@@ -23,39 +24,6 @@ export const useProductStore = defineStore("product", {
         supportOptions: ["MANUALS & TOOLS", "WARRANTY POLICY", "ACRONIS DOWNLOAD", "FAQ"],
 
         aboutOptions: ["ACER STORAGE", "NEWS", "REVIEWS", "CONTACT"],
-
-        indexCard: {
-            img1: '/Products-Image/1.jpg',
-
-            img2: '/Products-Image/2.jpg',
-
-            img3: '/Products-Image/3.png',
-
-            img4: '/Products-Image/4.png',
-
-            img5: '/Products-Image/5.jpg',
-
-            img6: '/Products-Image/6.jpg',
-
-            title1: 'Acer UD200 DDR5 Desktop Memory',
-
-            title2: 'Acer SD200 Laptop DRAM',
-
-            title3: 'Acer FA200 PCle M.2 SSD',
-
-            title4: 'Acer UM310 USB Flash Drive',
-
-            title5: 'Acer MSC300 MicroSD Card',
-
-            title6: 'Acer UP300 USB Flash Drive',
-
-            listNo1: ['Unleash speeds up to 5600 MHz', 'Elevate stability with On-Die ECC', 'Power management IC (PMIC)'],
-            listNo2: ['Faster Load Times and File Transfers', 'Improved Stability with On-Die ECC', 'Optimized Power Effciency'],
-            listNo3: ['PCle Gen 4 x4, NVMe 2.0', 'Speeds up to 7200 MB/s', 'PS5 compatible'],
-            listNo4: ['Up to 120 MB/s read', 'Storage on the go', 'Rock-solid durability'],
-            listNo5: ['Supports V30 and 4k', 'UHS-I standard', 'Read at speeds up to 160 MB/s'],
-            listNo6: ['Up to 120 MB/s read speed', 'Premium controller and ICs', 'Choice of three colors'],
-        },
 
         newsCard: {
             img1: "/News-Image/1.jpg",
@@ -78,44 +46,137 @@ export const useProductStore = defineStore("product", {
         },
 
         ProductArray: [{
-            id: 1, img: "/Products-Image/1.jpg", title: "Acer UD200 DDR5 Desktop Memory",
-        }, {
-            id: 2, img: "/Products-Image/2.jpg", title: "Acer SD200 Laptop DRAM",
-        }, {
-            id: 3, img: "/Products-Image/3.png", title: "Acer FA200 PCle M.2 SSD",
-        }, {
-            id: 4, img: "/Products-Image/4.png", title: "Acer UM310 USB Flash Drive",
-        }, {
-            id: 5, img: "/Products-Image/5.jpg", title: "Acer MSC300 MicroSD Card",
-        }, {
-            id: 6, img: "/Products-Image/6.jpg", title: "Acer MSC300 MicroSD Card",
-        }, {
-            id: 7, img: "/Products-Image/7.jpg", title: 'Acer RE100 2.5" SATA III SSD',
-        }, {
-            id: 8, img: "/Products-Image/8.jpg", title: "Acer FA100 M.2 PCIe NVMe SSD",
-        }, {
-            id: 9, img: "/Products-Image/9.jpg", title: 'Acer SA100 2.5" SATA lll SSD',
-        }, {
-            id: 10, img: "/Products-Image/10.jpg", title: "Acer UD100 Desktop DRAM",
-        }, {
-            id: 11, img: "/Products-Image/11.jpg", title: "Acer UD100 Desktop DRAM",
-        }, {
-            id: 12, img: "/Products-Image/12.png", title: "Acer RE100 M.2 SSD",
-        }, {
-            id: 13, img: "/Products-Image/13.jpg", title: "Acer CF100 Memory Card",
-        }, {
-            id: 14, img: "/Products-Image/14.jpg", title: "Acer CF200 Memory Card ",
-        }, {
-            id: 15, img: "/Products-Image/15.jpg", title: "Acer HT100 Desktop DRAM",
-        }, {
-            id: 16, img: "/Products-Image/17.png", title: "Acer UF300 USB Flash Drive",
-        }, {
-            id: 17, img: "/Products-Image/18.png", title: "Acer UF200 USB Flash Drive",
-        }, {
-            id: 18, img: "/Products-Image/19.jpg", title: "Acer UP200 USB Flash Drive",
-        }, {
-            id: 19, img: "/Products-Image/20.png", title: "Acer SC300 SD Memory Card",
-        },],
+            id: 1,
+            img: "/Products-Image/1.jpg",
+            title: "Acer UD200 DDR5 Desktop Memory",
+            list: ['Unleash speeds up to 5600 MHz', 'Elevate stability with On-Die ECC', 'Power management IC (PMIC)'],
+        },
+
+            {
+                id: 2,
+                img: "/Products-Image/2.jpg",
+                title: "Acer SD200 Laptop DRAM",
+                list: ['Faster Load Times and File Transfers', 'Improved Stability with On-Die ECC', 'Optimized Power Effciency'],
+            },
+
+            {
+                id: 3,
+                img: "/Products-Image/3.png",
+                title: "Acer FA200 PCle M.2 SSD",
+                list: ['PCle Gen 4 x4, NVMe 2.0', 'Speeds up to 7200 MB/s', 'PS5 compatible'],
+            },
+
+            {
+                id: 4,
+                img: "/Products-Image/4.png",
+                title: "Acer UM310 USB Flash Drive",
+                list: ['Up to 120 MB/s read', 'Storage on the go', 'Rock-solid durability'],
+            },
+
+            {
+                id: 5,
+                img: "/Products-Image/5.jpg",
+                title: "Acer MSC300 MicroSD Card",
+                list: ['Supports V30 and 4k', 'UHS-I standard', 'Read at speeds up to 160 MB/s'],
+            },
+
+            {
+                id: 6,
+                img: "/Products-Image/6.jpg",
+                title: "Acer MSC300 MicroSD Card",
+                list: ['Up to 120 MB/s read speed', 'Premium controller and ICs', 'Choice of three colors'],
+            },
+
+            {
+                id: 7,
+                img: "/Products-Image/7.jpg",
+                title: 'Acer RE100 2.5" SATA III SSD',
+                list: ['Up to 120 MB/s read speed', 'Premium controller and ICs', 'Choice of three colors'],
+            },
+
+            {
+                id: 8,
+                img: "/Products-Image/8.jpg",
+                title: "Acer FA100 M.2 PCIe NVMe SSD",
+                list: ['Up to 120 MB/s read speed', 'Premium controller and ICs', 'Choice of three colors'],
+            },
+
+            {
+                id: 9,
+                img: "/Products-Image/9.jpg",
+                title: 'Acer SA100 2.5" SATA lll SSD',
+                list: ['Up to 120 MB/s read speed', 'Premium controller and ICs', 'Choice of three colors'],
+            },
+
+            {
+                id: 10,
+                img: "/Products-Image/10.jpg",
+                title: "Acer UD100 Desktop DRAM",
+                list: ['Up to 120 MB/s read speed', 'Premium controller and ICs', 'Choice of three colors'],
+            },
+
+            {
+                id: 11,
+                img: "/Products-Image/11.jpg",
+                title: "Acer UD100 Desktop DRAM",
+                list: ['Up to 120 MB/s read speed', 'Premium controller and ICs', 'Choice of three colors'],
+            },
+
+            {
+                id: 12,
+                img: "/Products-Image/12.png",
+                title: "Acer RE100 M.2 SSD",
+                list: ['Up to 120 MB/s read speed', 'Premium controller and ICs', 'Choice of three colors'],
+            },
+
+            {
+                id: 13,
+                img: "/Products-Image/13.jpg",
+                title: "Acer CF100 Memory Card",
+                list: ['Up to 120 MB/s read speed', 'Premium controller and ICs', 'Choice of three colors'],
+            },
+
+            {
+                id: 14,
+                img: "/Products-Image/14.jpg",
+                title: "Acer CF200 Memory Card ",
+                list: ['Up to 120 MB/s read speed', 'Premium controller and ICs', 'Choice of three colors'],
+            },
+
+            {
+                id: 15,
+                img: "/Products-Image/15.jpg",
+                title: "Acer HT100 Desktop DRAM",
+                list: ['Up to 120 MB/s read speed', 'Premium controller and ICs', 'Choice of three colors'],
+            },
+
+            {
+                id: 16,
+                img: "/Products-Image/17.png",
+                title: "Acer UF300 USB Flash Drive",
+                list: ['Up to 120 MB/s read speed', 'Premium controller and ICs', 'Choice of three colors'],
+            },
+
+            {
+                id: 17,
+                img: "/Products-Image/18.png",
+                title: "Acer UF200 USB Flash Drive",
+                list: ['Up to 120 MB/s read speed', 'Premium controller and ICs', 'Choice of three colors'],
+            },
+
+            {
+                id: 18,
+                img: "/Products-Image/19.jpg",
+                title: "Acer UP200 USB Flash Drive",
+                list: ['Up to 120 MB/s read speed', 'Premium controller and ICs', 'Choice of three colors'],
+            },
+
+            {
+                id: 19,
+                img: "/Products-Image/20.png",
+                title: "Acer SC300 SD Memory Card",
+                list: ['Up to 120 MB/s read speed', 'Premium controller and ICs', 'Choice of three colors'],
+            },],
     }),
 
     getters: {
@@ -168,10 +229,22 @@ export const useProductStore = defineStore("product", {
             }, 5000);
         },
 
+        reloadIndexProduct() {
+            this.indexProductArray = this.ProductArray
+            this.indexProductArray = this.indexProductArray.slice(0, 6)
 
-        // scrollImage(imgIndex) {
-        //     this.selectedScrollImage = imgIndex;
-        // },
+        },
+
+        findProduct() {
+            let route = useRoute()
+            this.selectItem = route.params.id
+            this.p = this.ProductArray.find((item) => item.title === this.selectItem)
+        },
+
+        filterProduct() {
+            this.relatedProduct = this.ProductArray.filter((item) => item.type === this.p?.type)
+            this.relatedProduct = this.relatedProduct.slice(0, 3)
+        },
 
     },
 });

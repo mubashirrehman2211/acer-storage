@@ -25,7 +25,8 @@ onMounted(() => {
 
     <RelatedProduct/>
   </div>
-  <ULoading v-else>loading...</ULoading>
+
+  <ULoading v-else class="my-60"/>
 </template>
 
 <style scoped>

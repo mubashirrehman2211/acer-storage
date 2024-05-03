@@ -38,15 +38,7 @@ const product = useProductStore()
     </div>
   </div>
 
-  <div class="grid grid-cols-3 my-20 gap-y-20 mx-52 hover:text-[#86d145]">
-    <TransitionGroup name="list">
-      <div v-for="p in product?.resultedArray"
-           :key="p.id" class="all-center flex-col w-[400px] h-[300px] cursor-pointer">
-
-        <BaseProduct :p="p"/>
-      </div>
-    </TransitionGroup>
-  </div>
+  <BaseProduct/>
 
   <div v-if="product.resultedArray?.length === 0"
        class="all-center text-xl my-40 border-2 border-gray-100 shadow-sm rounded m-auto px-4 py-8 w-[30%]">
