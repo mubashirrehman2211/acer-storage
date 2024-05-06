@@ -2,6 +2,7 @@
 import ImageSlider from '../components/ImageSlider.vue'
 import IndexNewsCard from '../components/IndexNewsCard.vue'
 import {useProductStore} from "~/stores/product.js";
+import {onBeforeMount, onMounted} from "vue";
 
 const product = useProductStore()
 

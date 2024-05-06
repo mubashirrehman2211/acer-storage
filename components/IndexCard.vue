@@ -5,7 +5,6 @@ const product = useProductStore()
 const router = useRouter()
 
 function showDetail(detail) {
-  product.selectItem = detail
   router.push(`/products/${detail}`)
 }
 </script>
@@ -16,8 +15,9 @@ function showDetail(detail) {
     <div class="grid grid-cols-3 mt-10 gap-y-48 mx-52">
       <div v-for="p in product?.indexProductArray"
            :key="p?.id"
-           class="all-center flex-col w-[400px] h-[300px] hover:text-[#86d145] cursor-pointer">
-        <img :src="p?.img" alt="" class="w-[70%] p-2 hover:scale-110 duration-200" @click="showDetail(p?.title)">
+           class="all-center flex-col w-[400px] h-[300px] hover:text-[#86d145] cursor-pointer"
+           @click="showDetail(p?.title)">
+        <img :src="p?.img" alt="" class="w-[70%] p-2 hover:scale-110 duration-200">
 
         <h2 class="text-xl px-2">{{ p?.title }}</h2>
         <ul v-for="item in p?.list" :key="item">

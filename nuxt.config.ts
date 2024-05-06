@@ -11,5 +11,6 @@ export default defineNuxtConfig({
     css: ['nvd-u/u-core.scss'],
     components: [
         {path: 'components', pathPrefix: false},
+        {path: 'node_modules/nvd-u/components', pathPrefix: false},
     ]
 })

@@ -3,6 +3,7 @@ import USelect from 'nvd-u/components/USelect.vue'
 import {useProductStore} from "~/stores/product.js";
 
 const product = useProductStore()
+
 </script>
 
 <template>
