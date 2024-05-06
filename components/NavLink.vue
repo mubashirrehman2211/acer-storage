@@ -26,7 +26,7 @@ function close() {
       <NuxtLink :to="to" class="nuxt-link router-link-active">{{ title }}</NuxtLink>
     </h3>
     <Transition name="dropdown-fade">
-      <div v-if="opened" class="bg-[#f5f5f5] text-[#555] mt-[1.7rem] rounded-b-lg">
+      <div v-if="opened" class="bg-gray-100 text-[#777] mt-[1.7rem] rounded-b-lg">
         <ul v-for="n in options" class="">
           <li class="px-3 py-4 hover:font-semibold my-3 cursor-pointer">{{ n }}</li>
         </ul>
