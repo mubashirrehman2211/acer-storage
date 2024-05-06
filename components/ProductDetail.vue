@@ -54,16 +54,23 @@ function scrolloOnRelatedProduct() {
 
     </div>
 
-    <hr>
-    <div class="flex my-0 text-center justify-center">
-      <h2 class="my-0 mr-5 cursor-pointer text-muted" @click="scrolloOnOverview()">OVERVIEW</h2>
-      <h2 class="my-0 cursor-pointer text-muted" @click="scrolloOnSpecification()">
-        SPECIFICATIONS</h2>
-      <h2 class="my-0 ml-5 cursor-pointer text-muted" @click="scrolloOnDownload()">DOWNLOADS</h2>
-      <h2 class="my-0 ml-5 cursor-pointer text-muted" @click="scrolloOnRelatedProduct()">RELATED
-        PRODUCTS</h2>
+    <hr class="border-gray-100">
+    <div class="flex my-1 text-center justify-center">
+      <h2 class="my-0 mr-5 cursor-pointer text-gray-500 font-semibold hover:text-[#555]" @click="scrolloOnOverview()">
+        OVERVIEW
+      </h2>
+      <h2 class="my-0 cursor-pointer text-gray-500 font-semibold hover:text-[#555]" @click="scrolloOnSpecification()">
+        SPECIFICATIONS
+      </h2>
+      <h2 class="my-0 ml-5 cursor-pointer text-gray-500 font-semibold hover:text-[#555]" @click="scrolloOnDownload()">
+        DOWNLOADS
+      </h2>
+      <h2 class="my-0 ml-5 cursor-pointer text-gray-500 font-semibold hover:text-[#555]"
+          @click="scrolloOnRelatedProduct()">RELATED
+        PRODUCTS
+      </h2>
     </div>
-    <hr>
+    <hr class="border-gray-100">
 
     <div class="overview">
 

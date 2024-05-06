@@ -3,10 +3,10 @@
 </script>
 
 <template>
-  <div class="all-center flex-col">
+  <div class="all-center flex-col my-40">
     <h2 id="specification" class="text-3xl text-[#80c342] font-semibold">SPECIFICATIONS</h2>
 
-    <div class="all-center flex-col my-20 w-[800px]">
+    <div class="all-center flex-col my-2 w-[800px]">
 
       <div class="flex text-start justify-start border-[1px] border-gray-100 rounded w-full ">
         <div class="all-center border-2 border-[#77bb26] bg-[#77bb26] text-xl text-white w-80 py-2"><span>Type</span>

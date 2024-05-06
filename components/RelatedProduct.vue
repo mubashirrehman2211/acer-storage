@@ -11,7 +11,7 @@ function showDetail(detail) {
 </script>
 
 <template>
-  <div class="all-center flex-col my-5">
+  <div class="all-center flex-col my-40">
     <h2 id="download" class="text-3xl text-[#333] font-semibold">RELATED PRODUCTS</h2>
 
     <div class="">

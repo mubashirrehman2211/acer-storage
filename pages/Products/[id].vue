@@ -35,6 +35,8 @@ onMounted(() => {
   </div>
 
   <ULoading v-else class="my-60"/>
+
+
 </template>
 
 <style scoped>

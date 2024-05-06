@@ -3,7 +3,7 @@ defineProps(['title', 'desc', 'imgSrc'])
 </script>
 
 <template>
-  <div class="first-div all-center m-3">
+  <div class="all-center my-40">
     <div class="w-[40%] mr-20">
       <h2 class="text-xl font-semibold">{{ title }}</h2>
       <p class="p-4">{{ desc }}</p>
