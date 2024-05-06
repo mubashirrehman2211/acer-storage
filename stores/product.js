@@ -17,6 +17,7 @@ export const useProductStore = defineStore("product", {
         p: null,
         relatedProduct: null,
         pressBtn: null,
+        showBtn: false,
 
         productOptions: ["PCIE M.2 SSD", 'SATA 2.5" SSD', 'SATA M.2" SSD', "MEMORY", "MEMORY CARD", "USB FLASH DRIVE"],
 
@@ -201,7 +202,6 @@ export const useProductStore = defineStore("product", {
 
         // SEARCH BY WORD
 
-
         searchArray() {
             if (this.searchValue) {
                 return this.productArray.filter((item) => {
@@ -245,5 +245,17 @@ export const useProductStore = defineStore("product", {
             this.relatedProduct = this.productArray.filter((item) => item.type === this.p?.type)
             this.relatedProduct = this.relatedProduct?.slice(0, 3)
         },
+
+        handleScroll() {
+            if (window.scrollY > 0) {
+                this.showBtn = true
+            } else {
+                this.showBtn = false
+            }
+        },
+    },
+
+    scrollToTop() {
+        window.scrollTo({top: 0, behavior: "smooth"});
     },
 });

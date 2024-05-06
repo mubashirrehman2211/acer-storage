@@ -3,7 +3,6 @@ import USelect from 'nvd-u/components/USelect.vue'
 import {useProductStore} from "~/stores/product.js";
 
 const product = useProductStore()
-
 </script>
 
 <template>
@@ -45,7 +44,6 @@ const product = useProductStore()
        class="all-center text-xl my-40 border-2 border-gray-100 shadow-sm rounded m-auto px-4 py-8 w-[30%]">
     Sorry! This Product is <span class="text-red-700 ml-1">Out of Stock</span>.
   </div>
-
 </template>
 
 <style scoped>

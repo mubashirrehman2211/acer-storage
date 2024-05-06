@@ -11,6 +11,8 @@ import Navbar from "~/components/Navbar.vue";
       <slot/>
     </div>
 
+    <BackToTopBtn/>
+
     <Footer/>
   </main>
 </template>
