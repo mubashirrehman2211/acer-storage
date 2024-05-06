@@ -3,8 +3,8 @@
 </script>
 
 <template>
-  <div>
-    About us
+  <div class="my-60 all-center text-xl text-muted">
+    If you want to know about acer Storage visit official website acerStorage.com
   </div>
 
 </template>

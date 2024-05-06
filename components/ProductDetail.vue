@@ -4,6 +4,26 @@ import radioBtn from './radioBtn.vue'
 import OverViewCard from "~/components/OverViewCard.vue";
 
 const product = useProductStore()
+
+function scrolloOnOverview() {
+  document.documentElement.style.scrollBehavior = 'smooth'
+  document.getElementById('overview').scrollIntoView()
+}
+
+function scrolloOnSpecification() {
+  document.documentElement.style.scrollBehavior = 'smooth'
+  document.getElementById('specification').scrollIntoView()
+}
+
+function scrolloOnDownload() {
+  document.documentElement.style.scrollBehavior = 'smooth'
+  document.getElementById('download').scrollIntoView()
+}
+
+function scrolloOnRelatedProduct() {
+  document.documentElement.style.scrollBehavior = 'smooth'
+  document.getElementById('relatedProduct').scrollIntoView()
+}
 </script>
 
 <template>
@@ -36,10 +56,12 @@ const product = useProductStore()
 
     <hr>
     <div class="flex my-0 text-center justify-center">
-      <h2 class="my-0 mr-3 cursor-pointer text-muted">OVERVIEW</h2>
-      <h2 class="my-0 ml-3 cursor-pointer text-muted">SPECIFICATIONS</h2>
-      <h2 class="my-0 ml-3 cursor-pointer text-muted">DOWNLOADS</h2>
-      <h2 class="my-0 ml-3 cursor-pointer text-muted">RELATED PRODUCTS</h2>
+      <h2 class="my-0 mr-5 cursor-pointer text-muted" @click="scrolloOnOverview()">OVERVIEW</h2>
+      <h2 class="my-0 cursor-pointer text-muted" @click="scrolloOnSpecification()">
+        SPECIFICATIONS</h2>
+      <h2 class="my-0 ml-5 cursor-pointer text-muted" @click="scrolloOnDownload()">DOWNLOADS</h2>
+      <h2 class="my-0 ml-5 cursor-pointer text-muted" @click="scrolloOnRelatedProduct()">RELATED
+        PRODUCTS</h2>
     </div>
     <hr>
 

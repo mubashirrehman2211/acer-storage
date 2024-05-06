@@ -239,7 +239,6 @@ export const useProductStore = defineStore("product", {
             let route = useRoute()
             this.selectItem = route.params.id
             this.p = this.productArray.find((item) => item.title === this.selectItem)
-            console.log('p', this.p)
         },
 
         filterProduct() {

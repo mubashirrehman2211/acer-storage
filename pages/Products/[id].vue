@@ -17,13 +17,21 @@ onMounted(() => {
   <div v-if="product.p">
     <ProductDetail/>
 
-    <OverView/>
+    <div id="overview">
+      <OverView/>
+    </div>
 
-    <ProductSpecification/>
+    <div id="specification">
+      <ProductSpecification/>
+    </div>
 
-    <DownloadComponent/>
+    <div id="download">
+      <DownloadComponent/>
+    </div>
 
-    <RelatedProduct/>
+    <div id="relatedProduct">
+      <RelatedProduct/>
+    </div>
   </div>
 
   <ULoading v-else class="my-60"/>

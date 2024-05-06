@@ -7,7 +7,6 @@ const product = useProductStore()
 const router = useRouter()
 
 function showDetail(detail) {
-  product.selectItem = detail
   router.push(`/products/${detail}`)
 }
 </script>
