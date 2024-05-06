@@ -16,6 +16,7 @@ export const useProductStore = defineStore("product", {
         selectItem: null,
         p: null,
         relatedProduct: null,
+        pressBtn: null,
 
         productOptions: ["PCIE M.2 SSD", 'SATA 2.5" SSD', 'SATA M.2" SSD', "MEMORY", "MEMORY CARD", "USB FLASH DRIVE"],
 
@@ -45,7 +46,7 @@ export const useProductStore = defineStore("product", {
             paraNo3: "To meet the demands of adventurers who always seek the perfect moment to capture, the new Acer SC300 SD card offers exceptional performance for smooth and reliable burst...",
         },
 
-        ProductArray: [{
+        productArray: [{
             id: 1,
             img: "/Products-Image/1.jpg",
             title: "Acer UD200 DDR5 Desktop Memory",
@@ -184,17 +185,17 @@ export const useProductStore = defineStore("product", {
         // SEARCH BY TITLE
 
         resultedArray() {
-            if (this.selectedProduct === 'ALL') return this.ProductArray;
+            if (this.selectedProduct === 'ALL') return this.productArray;
 
             if (this.selectedProduct) {
-                return this.ProductArray.filter((item) => {
+                return this.productArray.filter((item) => {
                     return this.selectedProduct
                         .toUpperCase()
                         .split(" ")
                         .every((v) => item.title.toUpperCase().includes(v));
                 });
             } else {
-                return this.ProductArray
+                return this.productArray
             }
         },
 
@@ -202,9 +203,8 @@ export const useProductStore = defineStore("product", {
 
 
         searchArray() {
-
             if (this.searchValue) {
-                return this.ProductArray.filter((item) => {
+                return this.productArray.filter((item) => {
                     return this.searchValue
                         .toUpperCase()
                         .split(" ")
@@ -230,7 +230,7 @@ export const useProductStore = defineStore("product", {
         },
 
         reloadIndexProduct() {
-            this.indexProductArray = this.ProductArray
+            this.indexProductArray = this.productArray
             this.indexProductArray = this.indexProductArray.slice(0, 6)
 
         },
@@ -238,13 +238,13 @@ export const useProductStore = defineStore("product", {
         findProduct() {
             let route = useRoute()
             this.selectItem = route.params.id
-            this.p = this.ProductArray.find((item) => item.title === this.selectItem)
+            this.p = this.productArray.find((item) => item.title === this.selectItem)
+            console.log('p', this.p)
         },
 
         filterProduct() {
-            this.relatedProduct = this.ProductArray.filter((item) => item.type === this.p?.type)
-            this.relatedProduct = this.relatedProduct.slice(0, 3)
+            this.relatedProduct = this.productArray.filter((item) => item.type === this.p?.type)
+            this.relatedProduct = this.relatedProduct?.slice(0, 3)
         },
-
     },
 });

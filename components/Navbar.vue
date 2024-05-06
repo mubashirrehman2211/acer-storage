@@ -4,15 +4,17 @@ import {useProductStore} from "~/stores/product.js";
 
 
 const product = useProductStore()
-
 const router = useRouter()
 
-function goToSearchPage() {
+function onDblClick() {
   router.push('/Search')
 }
 
 function searchBtn() {
   product.toggleSearch = true
+  setTimeout(() => {
+    document.getElementById("myInput").focus();
+  }, 500)
   if (product.searchValue) {
     router.push('/Search')
   }
@@ -51,19 +53,21 @@ function searchBtn() {
     </div>
 
     <div class="all-center">
-      <div :class="{'search' : product.toggleSearch}" class="flex">
+      <div :class="{'search' : product.toggleSearch}" class="flex w-60 h-16">
         <Transition name="input">
           <input
               v-if="product.toggleSearch"
+              id="myInput"
               v-model="product.searchValue"
-              class="w-60 mx-2 bg-[#666] outline-none text-sm p-2"
+              class="w-60 mx-2 bg-[#666] outline-none text-sm"
               placeholder="search"
               type="text"
+              @keyup.enter="searchBtn()"
           >
         </Transition>
-        <Magnify :class="{'text-white': product.toggleSearch}" class="text-3xl text-gray-500"
+        <Magnify :class="{'text-white': product.toggleSearch}" class="text-3xl mr-1 text-gray-500 cursor-pointer"
                  @click="searchBtn()"
-                 @dblclick="goToSearchPage()"/>
+                 @dblclick="onDblClick()"/>
       </div>
     </div>
 
@@ -73,8 +77,8 @@ function searchBtn() {
 <style scoped>
 .search {
   border: 2px solid #666;
-  border-radius: 15px;
-  height: 30px;
+  border-radius: 5px;
+  height: 40px;
   background-color: #666;
   color: #ffffff;
 }
@@ -90,7 +94,6 @@ function searchBtn() {
 
 .input-enter-from,
 .input-leave-to {
-  transform: translateX(100px);
   opacity: 0;
 
 }
