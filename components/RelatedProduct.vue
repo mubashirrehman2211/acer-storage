@@ -17,7 +17,7 @@ function showDetail(detail) {
     <div class="">
       <ul class="grid grid-cols-3 gap-3 justify-center align-items-center">
         <li v-for="rp in product?.relatedProduct" :key="rp"
-            class="border-[1px] border-gray-100 rounded w-[300px] shadow-sm"
+            class="border-[1px] border-gray-100 p-4 rounded w-[300px] shadow-sm"
             @click="showDetail(rp?.title)">
           <img :src="rp?.img" alt="" class="w-[70%] m-auto">
           <h2>{{ rp?.title }}</h2>

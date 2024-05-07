@@ -243,6 +243,7 @@ export const useProductStore = defineStore("product", {
 
         filterProduct() {
             this.relatedProduct = this.productArray.filter((item) => item.type === this.p?.type)
+            this.relatedProduct = this.relatedProduct.sort(() => .5 - Math.random());
             this.relatedProduct = this.relatedProduct?.slice(0, 3)
         },
 
