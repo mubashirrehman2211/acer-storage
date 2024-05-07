@@ -22,8 +22,9 @@ onMounted(() => {
 
 <template>
   <transition name="btn">
-    <div v-if="product.showBtn" class="sticky bottom-20 text-right justify-end" @click="scroll">
-      <ChevronUp class="all-center text-3xl border-2 rounded-full border-gray-200 bg-gray-200 mr-40 cursor-pointer"/>
+    <div v-if="product.showBtn" class="sticky bottom-20 text-right justify-end" @click="scroll()">
+      <ChevronUp
+          class="all-center text-3xl text-white border-2 rounded-full border-gray-500 bg-gray-500 mr-40 cursor-pointer"/>
     </div>
   </transition>
 </template>
